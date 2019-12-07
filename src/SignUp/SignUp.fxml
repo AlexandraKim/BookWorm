@@ -43,13 +43,13 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="82.0" layoutY="264.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="280.0" promptText="  Username" style="-fx-border-color: #D8DBDF; -fx-background-insets: 0; -fx-background-color: FFFFFF; -fx-border-radius: 20;" />
-            <PasswordField layoutX="82.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="280.0" promptText="  Password" style="-fx-border-color: #D8DBDF; -fx-border-radius: 20; -fx-background-insets: 0; -fx-background-color: FFFFFF;">
+            <TextField fx:id="userId" layoutX="82.0" layoutY="264.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="280.0" promptText="  Id" style="-fx-border-color: #D8DBDF; -fx-background-insets: 0; -fx-background-color: FFFFFF; -fx-border-radius: 20;" />
+            <PasswordField fx:id="password" layoutX="82.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="280.0" promptText="  Password" style="-fx-border-color: #D8DBDF; -fx-border-radius: 20; -fx-background-insets: 0; -fx-background-color: FFFFFF;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </PasswordField>
-            <Button layoutX="182.0" layoutY="388.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="78.0" style="-fx-background-color: #6C35C9; -fx-background-radius: 50; -fx-background-insets: 0;" text="Log In" textFill="WHITE">
+            <Button fx:id="signInBtn" onAction="#signInBtnClick" layoutX="182.0" layoutY="388.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="78.0" style="-fx-background-color: #6C35C9; -fx-background-radius: 50; -fx-background-insets: 0;" text="Log In" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
