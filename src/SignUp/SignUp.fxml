@@ -46,6 +46,11 @@
                   <Font size="14.0" />
                </font>
             </Button>
+            <Label fx:id="validationError" layoutX="95.0" layoutY="361.0" text="Password or id is incorrect!" textFill="#e51010" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

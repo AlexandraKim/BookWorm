@@ -2,8 +2,11 @@ package SignUp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
+import javafx.scene.paint.Color;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,6 +18,7 @@ public class Controller {
     @FXML
     public TextField userId;
     public PasswordField password;
+    public Label validationError;
 
     public void signInBtnClick(){
         try (
@@ -23,7 +27,9 @@ public class Controller {
         )
         {
             ResultSet resultSet = stmt.executeQuery("select * from user where id = '" + userId.getText() + "'  and password = '" + password.getText() + "'");
-
+            if (!resultSet.next()){
+                validationError.setVisible(true);
+            }
             while(resultSet.next()) {
                 String firstname = resultSet.getString("firstname");
                 String lastname = resultSet.getString("lastname");
