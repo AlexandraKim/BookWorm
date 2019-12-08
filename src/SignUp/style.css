@@ -1,0 +1,12 @@
+.input-text {
+    -fx-border-color: #D8DBDF;
+    -fx-background-insets: 0;
+    -fx-background-color: FFFFFF;
+    -fx-border-radius: 20;
+}
+
+.button {
+    -fx-background-color: #6C35C9;
+    -fx-background-radius: 50;
+    -fx-background-insets: 0;
+}
