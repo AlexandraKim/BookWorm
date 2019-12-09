@@ -15,13 +15,16 @@ Id varchar(8) not null PRIMARY KEY,
 Type int(6) not null,
 FirstName varchar(128) not null,
 LastName varchar(128) not null,
-Password varchar(32) not null
+Password varchar(32) not null,
+IsBlocked bit,
 );
 
 CREATE TABLE UserToBook (
 Id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 UserId VARCHAR(8) NOT NULL,
-BookId int(6) not null
+BookId int(6) not null,
+IssueDate Date,
+ReturnDate Date
 );
 
 alter table UserToBook 
