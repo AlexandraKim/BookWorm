@@ -5,10 +5,72 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="40.0" prefWidth="100.0" text="U1810043">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label prefHeight="40.0" prefWidth="190.0" text="Talipova Zilola">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label prefHeight="40.0" prefWidth="127.0" text="998901001010">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label prefHeight="40.0" prefWidth="202.0" text="t.zilola@student.inha.uz">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label prefHeight="40.0" prefWidth="85.0" text="SOCIE">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label prefHeight="40.0" prefWidth="103.0" text="Sophomore">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="MODIFY">
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="DELETE">
+         <HBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </HBox.margin>
+      </Button>
+   </children>
+</HBox>

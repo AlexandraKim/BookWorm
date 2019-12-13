@@ -30,6 +30,9 @@ public class Controller {
         } else {
             validationError.setVisible(false);
             for ( UserEntity user : (List<UserEntity>) result ) {
+                if (user.getType() == 0){
+
+                } else if (user.getType() == 1 )
                 System.out.println("Welcome! " + user.getFirstName() + " " + user.getLastName());
             }
         }
