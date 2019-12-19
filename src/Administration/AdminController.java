@@ -5,10 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import Utils.*;
+import javafx.stage.Stage;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -30,23 +33,49 @@ public class AdminController implements Initializable {
     private Label numS;
     @FXML
     private Label numS1;
+    @FXML
+    private Label titleLbl;
+    @FXML
+    private Button librarianBtn;
+    @FXML
+    private Button studentsBtn;
+    @FXML
+    private Button booksBtn;
 
     @FXML
-    public Label userName;
+    public Label userNameLbl;
 
     private UserEntity _user = Auth.getUser();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        userNameLbl.setText(_user.getFirstName() + " " + _user.getLastName());
+        TableContent.setValue("l");
+        titleLbl.setText("Librarians");
+        //librarianBtn.setStyle("-fx-background-color: #5A00B4;");
         displayTable(1);
+
+        if (TableContent.getValue() == "s") {
+
+        }
+        if (TableContent.getValue() == "b") {
+            titleLbl.setText("Books");
+            librarianBtn.setStyle("-fx-background-color: #5A00B4;");
+        }
     }
 
     public void librarianBtnClick () {
+        TableContent.setValue("l");
         displayTable(1);
+        titleLbl.setText("Librarians");
+        //librarianBtn.setStyle("-fx-background-color: #5A00B4;");
     }
 
     public void studentsBtnClick () {
+        TableContent.setValue("s");
         displayTable(2);
+        titleLbl.setText("Students");
+        //studentsBtn.setStyle("-fx-background-color: #5A00B4;");
     }
 
     public void displayTable(int type) {
@@ -74,13 +103,34 @@ public class AdminController implements Initializable {
         TableContent.setValue("b");
     }
 
-    public void setValues(Session session){
-        //Query query = session.createQuery("select count(*) from user where type = 2");
-        //String numberOfStudents = query.iterate().next().toString();
-        userName.setText(_user.getFirstName() + " " + _user.getLastName());
-        //numS1.setText(numberOfStudents);
+    public void addBtnClick() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Add.fxml"));
+        Stage stage = new Stage();
+        String title = "librarian";
+        int type = 1;
+        if (TableContent.getValue() == "l") {
+            title = "librarian";
+            type = 1;
+        }
+        if (TableContent.getValue() == "s") {
+            title = "student";
+            type = 2;
+        }
+        if (TableContent.getValue() == "b") {
+            title = "book";
+        }
+        stage.setTitle("Add " + title);
+        try {
+            stage.setScene(new Scene(loader.load(), 409, 411));
+            AddController controller = loader.<AddController>getController();
+            stage.showAndWait();
+            displayTable(type);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
-    public void setFont () {
+   public void setFont () {
         Font myFont ;
         try {
             myFont = Font.loadFont(new FileInputStream(new File("Montserrat")), 10);

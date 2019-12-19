@@ -25,7 +25,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
                </VBox.margin>
             </ImageView>
-            <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="162.0" style="-fx-text-alignment: center;" text="Zilola Talipova" textFill="WHITE">
+            <Label fx:id="userNameLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="162.0" style="-fx-text-alignment: center;" text="Zilola Talipova" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -46,7 +46,7 @@
                   </ImageView>
                </graphic>
                <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <opaqueInsets>
                   <Insets left="120.0" />
@@ -55,7 +55,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button graphicTextGap="5.0" mnemonicParsing="false" onAction="#studentsBtnClick" prefHeight="61.0" prefWidth="268.0" styleClass="bodystyle" stylesheets="@buttonStyle.css" text="  Students" textFill="#6b35ca">
+            <Button fx:id="studentsBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#studentsBtnClick" prefHeight="61.0" prefWidth="268.0" styleClass="bodystyle" stylesheets="@buttonStyle.css" text="  Students" textFill="#6b35ca">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -70,7 +70,7 @@
                   </ImageView>
                </graphic>
                <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <opaqueInsets>
                   <Insets left="120.0" />
@@ -82,7 +82,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button graphicTextGap="5.0" mnemonicParsing="false" onAction="#booksBtnClick" prefHeight="62.0" prefWidth="270.0" styleClass="bodystyle" stylesheets="@buttonStyle.css" text="   Books" textFill="#6b35ca">
+            <Button fx:id="booksBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#booksBtnClick" prefHeight="62.0" prefWidth="270.0" styleClass="bodystyle" stylesheets="@buttonStyle.css" text="   Books" textFill="#6b35ca">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -94,7 +94,7 @@
                   </ImageView>
                </graphic>
                <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <opaqueInsets>
                   <Insets left="120.0" />
@@ -272,7 +272,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="Add" layoutX="1239.0" layoutY="169.0" minWidth="46.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 0 5 0 0; -fx-text-fill: #FFFFFF;" text="Add">
+      <Button fx:id="addBtn" layoutX="1239.0" layoutY="169.0" minWidth="46.0" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 0 5 0 0; -fx-text-fill: #FFFFFF;" text="Add">
          <graphic>
             <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -283,8 +283,11 @@
          <font>
             <Font size="19.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Label layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" text="STUDENTS" textFill="#7d5b9a">
+      <Label fx:id="titleLbl" layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" styleClass="bodystyle" text="STUDENTS" textFill="#7d5b9a">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
