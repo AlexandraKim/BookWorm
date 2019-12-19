@@ -41,18 +41,24 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String content = TableContent.getValue();
         Session session = DatabaseConnection.getSession();
         setValues(session);
-        String hql = "from UserEntity where type = 1";
-        if (content == "l"){
-            hql = "from UserEntity where type = 1";
-        } else if (content == "s") {
-            hql = "from UserEntity where type = 2";
-        } else if (content == "b") {
-            hql = "from BookEntity";
-        }
-        Query query = session.createQuery(hql);
+        displayTable(1);
+    }
+
+    public void librarianBtnClick (ActionEvent event) {
+        displayTable(1);
+    }
+
+    public void studentsBtnClick () {
+        displayTable(2);
+    }
+
+    public void displayTable(int type) {
+        list_items.getChildren().clear();
+        Session session = DatabaseConnection.getSession();
+        Query query = session.createQuery("from UserEntity where type = :type");
+        query.setParameter("type", type);
         List result = query.list();
 
         for (UserEntity user : (List<UserEntity>) result ) {
@@ -69,14 +75,6 @@ public class AdminController implements Initializable {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void librarianBtnClick (ActionEvent event) {
-        TableContent.setValue("l");
-    }
-
-    public void studentsBtnClick () {
-        TableContent.setValue("s");
     }
 
     public void booksBtnClick () {
