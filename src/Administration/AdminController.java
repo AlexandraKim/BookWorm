@@ -55,9 +55,6 @@ public class AdminController implements Initializable {
         Query query = session.createQuery(hql);
         List result = query.list();
 
-        //List of information,  here should be add functionaly
-
-        List<Node> nodes = new ArrayList<Node>();
         for (UserEntity user : (List<UserEntity>) result ) {
             try{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
@@ -87,7 +84,7 @@ public class AdminController implements Initializable {
     }
 
     public void setValues(Session session){
-        Query query = session.createQuery("select count(*) from user where type = 2");
+        //Query query = session.createQuery("select count(*) from user where type = 2");
         //String numberOfStudents = query.iterate().next().toString();
         userName.setText(_user.getFirstName() + " " + _user.getLastName());
         //numS1.setText(numberOfStudents);

@@ -12,11 +12,17 @@ import java.util.ResourceBundle;
 public class ItemController implements Initializable {
     @FXML
     Label idLbl;
+    @FXML
     Label nameLbl;
+    @FXML
     Label phoneLbl;
+    @FXML
     Label departmentLbl;
+    @FXML
     Label emailLbl;
+    @FXML
     Button modifyBtn;
+    @FXML
     Button deleteBtn;
 
     @Override

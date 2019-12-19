@@ -191,14 +191,6 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="107.0" text="Faculty">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
          </children>
          <effect>
             <DropShadow color="#6a36c937" height="44.83" radius="24.2975" spread="0.05" width="54.36" />
