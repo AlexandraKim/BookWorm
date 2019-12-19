@@ -6,16 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ModifyController implements Initializable {
@@ -55,7 +52,7 @@ public class ModifyController implements Initializable {
         user.setPhone(phoneLbl.getText());
         user.setEmail(emailLbl.getText());
         Transaction tx=null;
-        Session session = DatabaseConnection.getSession();
+        Session session = DatabaseConnection.get_sessionFactory().openSession();
         Query query = session.createQuery("update UserEntity set " +
                 "firstName = :firstName, " +
                 "lastName = :lastName, " +
@@ -72,7 +69,6 @@ public class ModifyController implements Initializable {
         tx.commit();
         session.close();
         closeDialog(saveBtn);
-
     }
 
     public void cancelBtnClick(){

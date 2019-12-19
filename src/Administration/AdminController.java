@@ -1,7 +1,6 @@
 package Administration;
 
 import Persistence.UserEntity;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,9 +15,7 @@ import org.hibernate.Session;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -41,8 +38,6 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Session session = DatabaseConnection.getSession();
-        setValues(session);
         displayTable(1);
     }
 
@@ -56,10 +51,11 @@ public class AdminController implements Initializable {
 
     public void displayTable(int type) {
         list_items.getChildren().clear();
-        Session session = DatabaseConnection.getSession();
+        Session session = DatabaseConnection.get_sessionFactory().openSession();
         Query query = session.createQuery("from UserEntity where type = :type");
         query.setParameter("type", type);
         List result = query.list();
+        session.close();
 
         for (UserEntity user : (List<UserEntity>) result ) {
             try{
@@ -68,8 +64,6 @@ public class AdminController implements Initializable {
                 ItemController controller = loader.<ItemController>getController();
                 controller.initData(user);
                 list_items.getChildren().add(node);
-
-
             } catch (Exception e){
                 e.printStackTrace();
             }

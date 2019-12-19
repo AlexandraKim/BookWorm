@@ -3,7 +3,6 @@ package SignUp;
 import Persistence.UserEntity;
 import Utils.DatabaseConnection;
 import Utils.Auth;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,12 +23,13 @@ public class Controller {
     public Button signInBtn;
 
     public void signInBtnClick(ActionEvent event) {
-        Session session = DatabaseConnection.getSession();
+        Session session = DatabaseConnection.get_sessionFactory().openSession();
         String hql = "from UserEntity where id = :id and password = :password";
         Query query = session.createQuery(hql);
         query.setParameter("id", userId.getText());
         query.setParameter("password", password.getText());
         List result = query.list();
+        session.close();
 
         if (result.isEmpty()) {
             validationError.setVisible(true);

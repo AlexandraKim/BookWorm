@@ -1,9 +1,7 @@
 package Administration;
 
 import Persistence.UserEntity;
-import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
