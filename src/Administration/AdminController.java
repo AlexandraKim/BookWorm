@@ -64,12 +64,11 @@ public class AdminController implements Initializable {
         for (UserEntity user : (List<UserEntity>) result ) {
             try{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
-                ItemController controller = new ItemController();
-                loader.setController(controller);
-
                 Node node = loader.load();
-                list_items.getChildren().add(node);
+                ItemController controller = loader.<ItemController>getController();
                 controller.initData(user);
+                list_items.getChildren().add(node);
+
 
             } catch (Exception e){
                 e.printStackTrace();

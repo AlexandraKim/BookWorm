@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="409.0" prefWidth="411.0" style="-fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Administration.ModifyController">
+   <children>
+      <TextField fx:id="idLbl" disable="true" layoutX="177.0" layoutY="59.0" prefHeight="26.0" prefWidth="142.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
+      <Label layoutX="83.0" layoutY="63.0" text="ID" />
+      <TextField fx:id="firstNameLbl" layoutX="177.0" layoutY="99.0" prefHeight="26.0" prefWidth="142.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
+      <TextField fx:id="lastNameLbl" layoutX="177.0" layoutY="139.0" prefHeight="26.0" prefWidth="142.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
+      <Label layoutX="83.0" layoutY="104.0" text="First Name" />
+      <Label layoutX="84.0" layoutY="143.0" text="Last Name" />
+      <TextField fx:id="phoneLbl" layoutX="177.0" layoutY="178.0" prefHeight="26.0" prefWidth="142.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
+      <Label layoutX="84.0" layoutY="182.0" text="Phone Number" />
+      <TextField fx:id="emailLbl" layoutX="177.0" layoutY="217.0" prefHeight="26.0" prefWidth="142.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
+      <Label layoutX="84.0" layoutY="222.0" text="Mail" />
+      <Label layoutX="27.0" layoutY="244.0" />
+      <Button fx:id="saveBtn" layoutX="284.0" layoutY="340.0" minWidth="46.0" mnemonicParsing="false" onAction="#saveBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #FFFFFF;" text="Save">
+         <font>
+            <Font size="19.0" />
+         </font>
+         <effect>
+            <DropShadow color="#4f067721" height="48.41" offsetX="6.0" offsetY="10.0" radius="20.4275" width="35.3" />
+         </effect>
+      </Button>
+      <Button fx:id="cancelBtn" layoutX="40.0" layoutY="340.0" minWidth="46.0" mnemonicParsing="false" onAction="#cancelBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #FFFFFF;" text="Cancel">
+         <font>
+            <Font size="19.0" />
+         </font>
+         <effect>
+            <DropShadow color="#52017d22" height="40.07" offsetX="6.0" offsetY="10.0" radius="19.535" spread="0.03" width="40.07" />
+         </effect>
+      </Button>
+      <ImageView fitHeight="274.0" fitWidth="103.0" layoutX="-6.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pattern3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="274.0" fitWidth="103.0" layoutX="339.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../Images/pattern3.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

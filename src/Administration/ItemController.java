@@ -1,7 +1,9 @@
 package Administration;
 
 import Persistence.UserEntity;
-import javafx.event.ActionEvent;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,8 +23,6 @@ public class ItemController implements Initializable {
     Label nameLbl;
     @FXML
     Label phoneLbl;
-    @FXML
-    Label departmentLbl;
     @FXML
     Label emailLbl;
     @FXML
@@ -43,19 +44,36 @@ public class ItemController implements Initializable {
         emailLbl.setText(obj.getEmail());
     }
 
-    public void modifyBtnClick(ActionEvent event){
+    public void modifyBtnClick(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ADD.fxml"));
-            AddController controller = new AddController();
-            loader.setController(controller);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Modify.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Modify " + user.getId());
             stage.setScene(new Scene(loader.load(), 409, 411));
+            ModifyController controller = loader.<ModifyController>getController();
+            controller.initData(user);
+            StringBinding strBinding = new StringBinding() {
+                {
+                    bind(controller.firstNameLbl.textProperty(), controller.lastNameLbl.textProperty());
+                }
+
+                @Override
+                protected String computeValue() {
+                    return controller.firstNameLbl.textProperty().getValue() + " " + controller.lastNameLbl.textProperty().getValue();
+                }
+            };
+
+            nameLbl.textProperty().bind(strBinding);
+            phoneLbl.textProperty().bind(controller.phoneLbl.textProperty());
+            emailLbl.textProperty().bind(controller.emailLbl.textProperty());
             stage.show();
-           // ((Node)(event.getSource())).getScene().getWindow().hide();
         }
         catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void deleteBtnClick(){
+
     }
 }

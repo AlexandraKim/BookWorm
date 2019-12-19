@@ -6,6 +6,7 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/bookworm</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.show_sql" >true</property>
     <property name="connection.username">root</property>
     <property name="connection.password">12345</property>
     <mapping class="Persistence.BookEntity"/>
