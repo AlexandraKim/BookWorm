@@ -13,6 +13,8 @@ public class UserEntity {
     private String firstName;
     private String lastName;
     private String password;
+    private String phone;
+    private String email;
     private Boolean isBlocked;
 
     @Id
@@ -63,6 +65,26 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Basic
+    @Column(name = "phone")
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Basic
