@@ -46,7 +46,7 @@ public class AdminController implements Initializable {
         displayTable(1);
     }
 
-    public void librarianBtnClick (ActionEvent event) {
+    public void librarianBtnClick () {
         displayTable(1);
     }
 

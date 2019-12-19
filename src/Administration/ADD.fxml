@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="409.0" prefWidth="411.0" style="-fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Administration.ADD">
+<AnchorPane prefHeight="409.0" prefWidth="411.0" style="-fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField layoutX="177.0" layoutY="59.0" prefHeight="26.0" prefWidth="142.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
       <Label layoutX="83.0" layoutY="63.0" text="ID" />

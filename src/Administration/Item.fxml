@@ -39,7 +39,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="modifyBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="MODIFY">
+      <Button fx:id="modifyBtn" mnemonicParsing="false" onAction="#modifyBtnClick" prefHeight="35.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="MODIFY">
          <HBox.margin>
             <Insets left="10.0" />
          </HBox.margin>
