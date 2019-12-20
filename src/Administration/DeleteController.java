@@ -1,5 +1,6 @@
 package Administration;
 
+import Persistence.BookEntity;
 import Persistence.UserEntity;
 import Utils.DatabaseConnection;
 import javafx.event.ActionEvent;
@@ -29,6 +30,7 @@ public class DeleteController implements Initializable {
     Button deleteBtn;
 
     private UserEntity _user;
+    private BookEntity _book;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
@@ -37,6 +39,11 @@ public class DeleteController implements Initializable {
         textLbl.setText("Are you sure you want to delete " + _user.getFirstName() + " " + _user.getLastName() + "?");
     }
 
+    public void initData(BookEntity book) {
+        _book = book;
+        textLbl.setText("Are you sure you want to delete " + _book.getTitle() + " by " + _book.getAuthor() + "?");
+    }
+// тут нужно продумать удаление книг, пока что удаляются только юзеры
     public void deleteBtnClick(ActionEvent event){
         Transaction tx = null;
         Session session = DatabaseConnection.get_sessionFactory().openSession();

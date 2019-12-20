@@ -1,5 +1,6 @@
 package Administration;
 
+import Persistence.BookEntity;
 import Persistence.UserEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import Utils.*;
@@ -36,43 +38,65 @@ public class AdminController implements Initializable {
 
     @FXML
     public Label userNameLbl;
+    @FXML
+    public HBox usersHeader;
+    @FXML
+    public HBox booksHeader;
 
     private UserEntity _user = Auth.getUser();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userNameLbl.setText(_user.getFirstName() + " " + _user.getLastName());
-        //librarianBtn.setStyle("-fx-background-color: #5A00B4;");
+        switchTable();
+    }
 
+    public void switchTable(){
+        String hoverOrActiveBtnStyle = "-fx-background-color: #5A00B4;";
+        String btnStyle = "-fx-background-color: #7242DB;";
         if (TableContent.getValue() == "l") {
             titleLbl.setText("Librarians");
-            displayTable(1);
-        }
-        if (TableContent.getValue() == "s") {
+            displayUsersTable(1);
+            usersHeader.setVisible(true);
+            booksHeader.setVisible(false);
+            librarianBtn.setStyle(hoverOrActiveBtnStyle);
+            studentsBtn.setStyle(btnStyle);
+            booksBtn.setStyle(btnStyle);
+        } else if (TableContent.getValue() == "s") {
             titleLbl.setText("Students");
-            displayTable(2);
-        }
-        if (TableContent.getValue() == "b") {
+            displayUsersTable(2);
+            usersHeader.setVisible(true);
+            booksHeader.setVisible(false);
+            studentsBtn.setStyle(hoverOrActiveBtnStyle);
+            librarianBtn.setStyle(btnStyle);
+            booksBtn.setStyle(btnStyle);
+        } else if (TableContent.getValue() == "b") {
             titleLbl.setText("Books");
-            librarianBtn.setStyle("-fx-background-color: #5A00B4;");
+            displayBooksTable();
+            usersHeader.setVisible(false);
+            booksHeader.setVisible(true);
+            booksBtn.setStyle(hoverOrActiveBtnStyle);
+            librarianBtn.setStyle(btnStyle);
+            studentsBtn.setStyle(btnStyle);
         }
     }
 
     public void librarianBtnClick () {
         TableContent.setValue("l");
-        displayTable(1);
-        titleLbl.setText("Librarians");
-        //librarianBtn.setStyle("-fx-background-color: #5A00B4;");
+        switchTable();
     }
 
     public void studentsBtnClick () {
         TableContent.setValue("s");
-        displayTable(2);
-        titleLbl.setText("Students");
-        //studentsBtn.setStyle("-fx-background-color: #5A00B4;");
+        switchTable();
     }
 
-    public void displayTable(int type) {
+    public void booksBtnClick () {
+        TableContent.setValue("b");
+        switchTable();
+    }
+
+    public void displayUsersTable(int type) {
         list_items.getChildren().clear();
         Session session = DatabaseConnection.get_sessionFactory().openSession();
         Query query = session.createQuery("from UserEntity where type = :type");
@@ -82,9 +106,9 @@ public class AdminController implements Initializable {
 
         for (UserEntity user : (List<UserEntity>) result ) {
             try{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemUsers.fxml"));
                 Node node = loader.load();
-                ItemController controller = loader.<ItemController>getController();
+                ItemUsersController controller = loader.<ItemUsersController>getController();
                 controller.initData(user);
                 list_items.getChildren().add(node);
             } catch (Exception e){
@@ -93,13 +117,30 @@ public class AdminController implements Initializable {
         }
     }
 
-    public void booksBtnClick () {
-        TableContent.setValue("b");
+    public void displayBooksTable() {
+        list_items.getChildren().clear();
+        Session session = DatabaseConnection.get_sessionFactory().openSession();
+        Query query = session.createQuery("from BookEntity");
+        List result = query.list();
+        session.close();
+
+        for (BookEntity book : (List<BookEntity>) result ) {
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemBooks.fxml"));
+                Node node = loader.load();
+                ItemBooksController controller = loader.<ItemBooksController>getController();
+                controller.initData(book);
+                list_items.getChildren().add(node);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
+
+
     public void addBtnClick() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Add.fxml"));
-        Stage stage = new Stage();
+
         String title = "librarian";
         int type = 1;
         if (TableContent.getValue() == "l") {
@@ -113,12 +154,14 @@ public class AdminController implements Initializable {
         if (TableContent.getValue() == "b") {
             title = "book";
         }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Add.fxml"));
+        Stage stage = new Stage();
         stage.setTitle("Add " + title);
         try {
             stage.setScene(new Scene(loader.load(), 409, 411));
             AddController controller = loader.<AddController>getController();
             stage.showAndWait();
-            displayTable(type);
+            displayUsersTable(type);
         } catch (Exception e){
             e.printStackTrace();
         }

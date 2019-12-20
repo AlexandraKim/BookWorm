@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ItemController implements Initializable {
+public class ItemUsersController implements Initializable {
     @FXML
     Label idLbl;
     @FXML
@@ -44,11 +44,11 @@ public class ItemController implements Initializable {
 
     public void modifyBtnClick(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Modify.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyUser.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Modify " + user.getId());
             stage.setScene(new Scene(loader.load(), 409, 411));
-            ModifyController controller = loader.<ModifyController>getController();
+            ModifyUserController controller = loader.<ModifyUserController>getController();
             controller.initData(user);
             StringBinding strBinding = new StringBinding() {
                 {

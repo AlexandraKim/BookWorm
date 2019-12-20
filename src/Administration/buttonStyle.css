@@ -16,3 +16,9 @@
 .menu-button:hover{
     -fx-background-color: #5A00B4;
 }
+
+.text-field-style {
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-border-color: #7242DB;
+}

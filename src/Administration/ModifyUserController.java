@@ -15,7 +15,7 @@ import org.hibernate.Transaction;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ModifyController implements Initializable {
+public class ModifyUserController implements Initializable {
     @FXML
     TextField idLbl;
     @FXML
