@@ -5,6 +5,7 @@ import javafx.beans.binding.StringBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -71,6 +72,38 @@ public class ItemController implements Initializable {
     }
 
     public void deleteBtnClick(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirm.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Confirm deletion of " + user.getId());
+            stage.setScene(new Scene(loader.load(), 409, 274));
+            DeleteController controller = loader.<DeleteController>getController();
+            controller.initData(user);
+            stage.showAndWait();
+            refreshParent();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
+    public void refreshParent(){
+        try {
+            Parent pageViewParent = FXMLLoader.load(getClass().getResource("Admin.fxml"));
+            Scene pageViewScene = new Scene(pageViewParent, 1366, 768);
+            Stage window = (Stage) idLbl.getScene().getWindow();
+            window.setScene(pageViewScene);
+            String type = "l";
+            if(user.getType() == 1){
+                type = "l";
+            }
+            if(user.getType() == 2){
+                type = "s";
+            }
+            TableContent.setValue(type);
+            window.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

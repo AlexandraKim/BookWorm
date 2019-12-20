@@ -1,11 +1,18 @@
-.button{
+.menu-button {
     -fx-background-color: #7242DB;
     -fx-text-fill: ffffff;
     -fx-font-size: 15;
     -fx-alignment: left;
     -fx-padding: 0 0 0 58;
-
 }
-.button:hover{
+.btn {
+    -fx-border-radius: 60;
+    -fx-background-radius: 60;
+    -fx-background-color: #7242DB;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-text-fill: #FFFFFF;
+}
+.menu-button:hover{
     -fx-background-color: #5A00B4;
 }

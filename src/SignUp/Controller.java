@@ -1,5 +1,6 @@
 package SignUp;
 
+import Administration.TableContent;
 import Persistence.UserEntity;
 import Utils.DatabaseConnection;
 import Utils.Auth;
@@ -48,6 +49,7 @@ public class Controller {
                     Scene pageViewScene = new Scene(pageViewParent, 1366, 768);
                     Stage window = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
                     window.setScene(pageViewScene);
+                    TableContent.setValue("l");
                     window.show();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

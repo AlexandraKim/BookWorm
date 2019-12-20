@@ -21,7 +21,7 @@
       <TextField fx:id="passwordTxt" accessibleRole="PASSWORD_FIELD" layoutX="177.0" layoutY="256.0" prefHeight="26.0" prefWidth="142.0" promptText="Password" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
       <Label layoutX="27.0" layoutY="244.0" />
       <Label layoutX="83.0" layoutY="260.0" text="Password" />
-      <Button fx:id="addBtn" layoutX="284.0" layoutY="340.0" minWidth="46.0" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #FFFFFF;" text="Add">
+      <Button fx:id="addBtn" layoutX="284.0" layoutY="340.0" minWidth="46.0" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="40.0" prefWidth="83.0" styleClass="btn" stylesheets="@buttonStyle.css" text="Add">
          <font>
             <Font size="19.0" />
          </font>
@@ -29,7 +29,7 @@
             <DropShadow color="#4f067721" height="48.41" offsetX="6.0" offsetY="10.0" radius="20.4275" width="35.3" />
          </effect>
       </Button>
-      <Button fx:id="cancelBtn" layoutX="40.0" layoutY="340.0" minWidth="46.0" mnemonicParsing="false" onAction="#cancelBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #FFFFFF;" text="Cancel">
+      <Button fx:id="cancelBtn" layoutX="40.0" layoutY="340.0" minWidth="46.0" mnemonicParsing="false" onAction="#cancelBtnClick" prefHeight="40.0" prefWidth="83.0" styleClass="btn" stylesheets="@buttonStyle.css" text="Cancel">
          <font>
             <Font size="19.0" />
          </font>

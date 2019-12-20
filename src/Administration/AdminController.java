@@ -23,16 +23,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
-
-    @FXML
-    private Label label;
-
     @FXML
     private VBox list_items = null;
-    @FXML
-    private Label numS;
-    @FXML
-    private Label numS1;
     @FXML
     private Label titleLbl;
     @FXML
@@ -50,13 +42,15 @@ public class AdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userNameLbl.setText(_user.getFirstName() + " " + _user.getLastName());
-        TableContent.setValue("l");
-        titleLbl.setText("Librarians");
         //librarianBtn.setStyle("-fx-background-color: #5A00B4;");
-        displayTable(1);
 
+        if (TableContent.getValue() == "l") {
+            titleLbl.setText("Librarians");
+            displayTable(1);
+        }
         if (TableContent.getValue() == "s") {
-
+            titleLbl.setText("Students");
+            displayTable(2);
         }
         if (TableContent.getValue() == "b") {
             titleLbl.setText("Books");
@@ -130,7 +124,7 @@ public class AdminController implements Initializable {
         }
 
     }
-   public void setFont () {
+    public void setFont () {
         Font myFont ;
         try {
             myFont = Font.loadFont(new FileInputStream(new File("Montserrat")), 10);
