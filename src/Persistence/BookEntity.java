@@ -107,11 +107,6 @@ public class BookEntity {
     public int hashCode() {
         return Objects.hash(id, title, genre, author, isbn, publicationDate, quantity);
     }
-
-    @ManyToMany
-    @JoinTable(name = "UserToBook",
-            joinColumns = {@JoinColumn(name = "BookId")},
-            inverseJoinColumns = {@JoinColumn(name = "UserId")}
-    )
+    @ManyToMany(mappedBy = "books")
     public Set<UserEntity> users = new HashSet<UserEntity>();
 }

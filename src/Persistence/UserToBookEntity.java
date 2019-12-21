@@ -1,8 +1,7 @@
 package Persistence;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -15,10 +14,10 @@ public class UserToBookEntity {
     //private Date returnDate;
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date issueDate;
+    private Date issueDate;
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date returnDate;
+    private Date returnDate;
 //    @Temporal(TemporalType.DATE)
 //    private java.util. issueDate;
 
@@ -56,10 +55,6 @@ public class UserToBookEntity {
     @Column(name = "IssueDate")
     public java.util.Date getIssueDate() {
         return issueDate;
-    }
-
-    public void setIssueDate(java.util.Date issueDate) {
-        this.issueDate = issueDate;
     }
 
     public void setIssueDate(Date issueDate) {
