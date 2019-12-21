@@ -107,12 +107,14 @@ public class UserEntity {
                 Objects.equals(firstName, that.firstName) &&
                 Objects.equals(lastName, that.lastName) &&
                 Objects.equals(password, that.password) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(phone, that.phone) &&
                 Objects.equals(isBlocked, that.isBlocked);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type, firstName, lastName, password, isBlocked);
+        return Objects.hash(id, type, firstName, lastName, password, isBlocked, email, phone);
     }
 
     @ManyToMany

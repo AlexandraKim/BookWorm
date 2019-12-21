@@ -13,6 +13,17 @@ public class BookEntity {
     private String author;
     private String isbn;
     private Date publicationDate;
+    private int quantity;
+
+    @Basic
+    @Column(name = "Quantity")
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     @Id
     @Column(name = "Id")
@@ -74,6 +85,7 @@ public class BookEntity {
         this.publicationDate = publicationDate;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,11 +96,12 @@ public class BookEntity {
                 Objects.equals(genre, that.genre) &&
                 Objects.equals(author, that.author) &&
                 Objects.equals(isbn, that.isbn) &&
+                Objects.equals(quantity, that.quantity) &&
                 Objects.equals(publicationDate, that.publicationDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, genre, author, isbn, publicationDate);
+        return Objects.hash(id, title, genre, author, isbn, publicationDate, quantity);
     }
 }
