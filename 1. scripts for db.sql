@@ -23,8 +23,8 @@ CREATE TABLE UserToBook (
 Id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 UserId VARCHAR(8) NOT NULL,
 BookId int(6) not null,
-IssueDate Date,
-ReturnDate Date
+IssueDate datetime,
+ReturnDate datetime
 );
 
 alter table UserToBook 
@@ -35,9 +35,9 @@ alter table UserToBook
 add constraint FK_UserToBook_Book
 FOREIGN KEY (BookId) REFERENCES Book(Id);
 
-insert into user (Id, Type, FirstName, LastName, Password) values ('U150001', 0, 'Arnold', 'Schwarzenegger', '1234567');
-insert into user (Id, Type, FirstName, LastName, Password) values ('U150002', 1, 'Ryan', 'Reynolds', '12345678');
-insert into user (Id, Type, FirstName, LastName, Password) values ('U1510001', 2, 'Elon', 'Musk', '12345679');
+insert into user (Id, Type, FirstName, LastName, Password) values ('U150001', 0, 'Arnold', 'Schwarzenegger', '12345');
+insert into user (Id, Type, FirstName, LastName, Password) values ('U150002', 1, 'Ryan', 'Reynolds', '123456');
+insert into user (Id, Type, FirstName, LastName, Password) values ('U1510001', 2, 'Elon', 'Musk', '1234567');
 
 insert into book (Title, Genre, Author, Isbn, PublicationDate) values ('Harry Potter and the Philosopher''s Stone', 'Fantasy Fiction', 'J. K. Rowling', '0747532699', '1997-06-26');
 insert into book (Title, Genre, Author, Isbn, PublicationDate) values ('The Great Gatsby', 'Fantasy Romantic', 'F. Scott Fitzgerald', '2023578952', '1925-10-25');

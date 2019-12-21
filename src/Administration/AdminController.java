@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -42,6 +43,9 @@ public class AdminController implements Initializable {
     public HBox usersHeader;
     @FXML
     public HBox booksHeader;
+
+    @FXML
+    public AnchorPane pane;
 
     private UserEntity _user = Auth.getUser();
 
@@ -140,33 +144,38 @@ public class AdminController implements Initializable {
 
 
     public void addBtnClick() {
-
         String title = "librarian";
+        String path = "Add.fxml";
         int type = 1;
         if (TableContent.getValue() == "l") {
             title = "librarian";
             type = 1;
-        }
-        if (TableContent.getValue() == "s") {
+            path = "Add.fxml";
+        } else if (TableContent.getValue() == "s") {
             title = "student";
             type = 2;
-        }
-        if (TableContent.getValue() == "b") {
+            path = "Add.fxml";
+        } else if (TableContent.getValue() == "b") {
             title = "book";
+            path = "AddBook.fxml";
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Add.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         Stage stage = new Stage();
         stage.setTitle("Add " + title);
         try {
             stage.setScene(new Scene(loader.load(), 409, 411));
-            AddController controller = loader.<AddController>getController();
             stage.showAndWait();
-            displayUsersTable(type);
+            if (TableContent.getValue() != "b"){
+                displayUsersTable(type);
+            } else {
+                displayBooksTable();
+            }
         } catch (Exception e){
             e.printStackTrace();
         }
 
     }
+
     public void setFont () {
         Font myFont ;
         try {

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="409.0" prefWidth="411.0" style="-fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Administration.ModifyBookController">
+<AnchorPane prefHeight="409.0" prefWidth="411.0" style="-fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Administration.AddBookController">
    <children>
       <TextField fx:id="isbnTxt" layoutX="177.0" layoutY="59.0" prefHeight="26.0" prefWidth="142.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #7242DB;" />
       <Label layoutX="83.0" layoutY="63.0" text="ISBN" />

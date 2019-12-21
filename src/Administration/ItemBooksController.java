@@ -12,6 +12,10 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ItemBooksController implements Initializable {
@@ -42,12 +46,15 @@ public class ItemBooksController implements Initializable {
         titleLbl.setText(obj.getTitle());
         genreLbl.setText(obj.getGenre());
         authorLbl.setText(obj.getAuthor());
-        publicationDateLbl.setText(obj.getPublicationDate().toString());
+        String pattern = "MM-dd-yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(obj.getPublicationDate());
+        publicationDateLbl.setText(date);
     }
 
     public void modifyBtnClick(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyUser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyBook.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Modify " + book.getTitle());
             stage.setScene(new Scene(loader.load(), 409, 411));

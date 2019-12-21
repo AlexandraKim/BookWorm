@@ -11,7 +11,7 @@
     <property name="connection.password">12345</property>
     <mapping class="Persistence.BookEntity"/>
     <mapping class="Persistence.UserEntity"/>
-    <mapping class="Persistence.UsertobookEntity"/>
+    <mapping class="Persistence.UserToBookEntity"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

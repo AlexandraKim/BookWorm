@@ -33,39 +33,51 @@ public class ModifyBookController implements Initializable {
     @FXML
     Button saveBtn;
 
+    private BookEntity _book;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
     public void initData(BookEntity book) {
+        _book = book;
         isbnTxt.setText(book.getIsbn());
         titleTxt.setText(book.getTitle());
         genreTxt.setText(book.getGenre());
         authorTxt.setText(book.getAuthor());
-        publicationDateTxt.setText(book.getPublicationDate().toString());
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(book.getPublicationDate());
+        publicationDateTxt.setText(date);
     }
 
     public void saveBtnClick(ActionEvent event){
-        BookEntity book = new BookEntity();
-        book.setIsbn(isbnTxt.getText());
-        book.setTitle(titleTxt.getText());
-        book.setGenre(genreTxt.getText());
-        book.setAuthor(authorTxt.getText());
-//        try {
-//            book.setPublicationDate(new SimpleDateFormat("yyyy/MM/dd").parse(publicationDateTxt.getText()));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+        _book.setIsbn(isbnTxt.getText());
+        _book.setTitle(titleTxt.getText());
+        _book.setGenre(genreTxt.getText());
+        _book.setAuthor(authorTxt.getText());
+        try {
+            _book.setPublicationDate(new SimpleDateFormat("yyyy-MM-dd").parse(publicationDateTxt.getText()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        // прописать дальше запрос на обновление BookEntity
         Transaction tx=null;
         Session session = DatabaseConnection.get_sessionFactory().openSession();
         Query query = session.createQuery("update BookEntity set " +
                 "title = :title, " +
+                "isbn = :isbn, " +
+                "genre = :genre, " +
+                "author = :author, " +
+                "publicationDate = :publicationDate " +
                 "where id = :id");
-        query.setParameter("title", book.getTitle());
-        query.setParameter("id", book.getId());
+        query.setParameter("id", _book.getId());
+        query.setParameter("title", _book.getTitle());
+        query.setParameter("isbn", _book.getIsbn());
+        query.setParameter("genre", _book.getGenre());
+        query.setParameter("author", _book.getAuthor());
+        query.setParameter("publicationDate", _book.getPublicationDate());
 
         int result = query.executeUpdate();
         tx = session.beginTransaction();

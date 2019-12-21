@@ -2,16 +2,25 @@ package Persistence;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 @Table(name = "usertobook", schema = "bookworm", catalog = "")
-public class UsertobookEntity {
+public class UserToBookEntity {
     private int id;
     private String userid;
     private int bookId;
-    private Date issueDate;
-    private Date returnDate;
+    //private Date issueDate;
+    //private Date returnDate;
+    @Basic
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date issueDate;
+    @Basic
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date returnDate;
+//    @Temporal(TemporalType.DATE)
+//    private java.util. issueDate;
 
     @Id
     @Column(name = "Id")
@@ -45,8 +54,12 @@ public class UsertobookEntity {
 
     @Basic
     @Column(name = "IssueDate")
-    public Date getIssueDate() {
+    public java.util.Date getIssueDate() {
         return issueDate;
+    }
+
+    public void setIssueDate(java.util.Date issueDate) {
+        this.issueDate = issueDate;
     }
 
     public void setIssueDate(Date issueDate) {
@@ -55,11 +68,11 @@ public class UsertobookEntity {
 
     @Basic
     @Column(name = "ReturnDate")
-    public Date getReturnDate() {
+    public java.util.Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(java.util.Date returnDate) {
         this.returnDate = returnDate;
     }
 
@@ -67,7 +80,7 @@ public class UsertobookEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsertobookEntity that = (UsertobookEntity) o;
+        UserToBookEntity that = (UserToBookEntity) o;
         return id == that.id &&
                 bookId == that.bookId &&
                 Objects.equals(userid, that.userid) &&

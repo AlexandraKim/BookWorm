@@ -16,7 +16,7 @@ import org.hibernate.Session;
 
 import java.util.List;
 
-public class Controller {
+public class SignUpController {
     @FXML
     public TextField userId;
     public PasswordField password;
@@ -43,13 +43,14 @@ public class Controller {
                     pagePath = "../Administration/Admin.fxml";
                 } else if (user.getType() == 1){
                     pagePath = "../Librarian/Librarian.fxml";
+                } else if (user.getType() == 2){
+                    pagePath = "../Student/Student.fxml";
                 }
                 try {
                     Parent pageViewParent = FXMLLoader.load(getClass().getResource(pagePath));
                     Scene pageViewScene = new Scene(pageViewParent, 1366, 768);
                     Stage window = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
                     window.setScene(pageViewScene);
-                    TableContent.setValue("l");
                     window.show();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

@@ -16,7 +16,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="titleLbl" prefHeight="40.0" prefWidth="350.0" text="Twilight">
+      <Label fx:id="titleLbl" prefHeight="40.0" prefWidth="300.0" text="Twilight">
          <padding>
             <Insets left="15.0" />
          </padding>

@@ -48,7 +48,14 @@ public class DeleteController implements Initializable {
         Transaction tx = null;
         Session session = DatabaseConnection.get_sessionFactory().openSession();
         Query q = session.createQuery("delete from UserEntity where id = :id ");
-        q.setParameter("id", _user.getId());
+        if (_book != null){
+            session.createQuery("delete from BookEntity where id = :id ");
+            q.setParameter("id", _book.getId());
+        }
+        if (_user != null){
+            session.createQuery("delete from UserEntity where id = :id ");
+            q.setParameter("id", _user.getId());
+        }
         q.executeUpdate();
         tx = session.beginTransaction();
         tx.commit();

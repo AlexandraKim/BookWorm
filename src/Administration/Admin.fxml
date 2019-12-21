@@ -108,7 +108,7 @@
             </Button>
             <VBox prefHeight="327.0" prefWidth="258.0" />
             <Line endX="100.0" startX="-100.0" stroke="WHITE" />
-            <Button graphicTextGap="5.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-color: #7242DB;" styleClass="bodystyle" stylesheets="@buttonStyle.css" text=" Log Out" textAlignment="CENTER" textFill="#6b35ca">
+            <Button graphicTextGap="5.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-color: #7242DB;" styleClass="bodystyle" stylesheets="@buttonStyle.css" text=" Log Out" textAlignment="CENTER" textFill="#f7f6f9">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -198,7 +198,7 @@
       </HBox>
       <HBox fx:id="booksHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label prefHeight="50.0" prefWidth="130.0" text="ISBN">
+            <Label prefHeight="50.0" prefWidth="120.0" text="ISBN">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -206,7 +206,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="350.0" text="Title">
+            <Label prefHeight="50.0" prefWidth="290.0" text="Title">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -222,7 +222,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="150.0" text="Author">
+            <Label prefHeight="50.0" prefWidth="130.0" text="Author">
                <padding>
                   <Insets left="20.0" />
                </padding>
