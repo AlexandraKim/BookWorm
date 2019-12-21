@@ -41,22 +41,25 @@ public class DeleteController implements Initializable {
 
     public void initData(BookEntity book) {
         _book = book;
-        textLbl.setText("Are you sure you want to delete " + _book.getTitle() + " by " + _book.getAuthor() + "?");
+        textLbl.setText("Are you sure you want to delete \n" +
+                _book.getTitle() + "\n" +
+                " by " + _book.getAuthor() + "?");
     }
-// тут нужно продумать удаление книг, пока что удаляются только юзеры
+
     public void deleteBtnClick(ActionEvent event){
         Transaction tx = null;
         Session session = DatabaseConnection.get_sessionFactory().openSession();
-        Query q = session.createQuery("delete from UserEntity where id = :id ");
         if (_book != null){
-            session.createQuery("delete from BookEntity where id = :id ");
+            Query q = session.createQuery("delete from BookEntity where id = :id ");
             q.setParameter("id", _book.getId());
+            q.executeUpdate();
         }
         if (_user != null){
-            session.createQuery("delete from UserEntity where id = :id ");
+            Query q = session.createQuery("delete from UserEntity where id = :id ");
             q.setParameter("id", _user.getId());
+            q.executeUpdate();
         }
-        q.executeUpdate();
+
         tx = session.beginTransaction();
         tx.commit();
         session.close();

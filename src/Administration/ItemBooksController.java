@@ -46,7 +46,7 @@ public class ItemBooksController implements Initializable {
         titleLbl.setText(obj.getTitle());
         genreLbl.setText(obj.getGenre());
         authorLbl.setText(obj.getAuthor());
-        String pattern = "MM-dd-yyyy";
+        String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(obj.getPublicationDate());
         publicationDateLbl.setText(date);
@@ -63,7 +63,10 @@ public class ItemBooksController implements Initializable {
 
             isbnLbl.textProperty().bind(controller.isbnTxt.textProperty());
             titleLbl.textProperty().bind(controller.titleTxt.textProperty());
-            // тут продолжить привязывать
+            genreLbl.textProperty().bind(controller.genreTxt.textProperty());
+            authorLbl.textProperty().bind(controller.authorTxt.textProperty());
+            publicationDateLbl.textProperty().bind(controller.publicationDateTxt.textProperty());
+
             stage.show();
         }
         catch (Exception e){
