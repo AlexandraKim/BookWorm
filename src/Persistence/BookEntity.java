@@ -1,10 +1,7 @@
 package Persistence;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "book", schema = "bookworm", catalog = "")
@@ -17,6 +14,7 @@ public class BookEntity {
     @Temporal(TemporalType.DATE)
     private Date publicationDate;
     private int quantity;
+    private Set<UserEntity> users = new HashSet<UserEntity>();
 
     @Basic
     @Column(name = "Quantity")
@@ -107,6 +105,17 @@ public class BookEntity {
     public int hashCode() {
         return Objects.hash(id, title, genre, author, isbn, publicationDate, quantity);
     }
-    @ManyToMany(mappedBy = "books")
-    public Set<UserEntity> users = new HashSet<UserEntity>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "UserToBook",
+            joinColumns = {@JoinColumn(name = "BookId")},
+            inverseJoinColumns = {@JoinColumn(name = "UserId")}
+    )
+    public Set<UserEntity> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<UserEntity> users) {
+        this.users = users;
+    }
 }

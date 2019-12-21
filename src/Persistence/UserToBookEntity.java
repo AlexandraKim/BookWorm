@@ -10,8 +10,6 @@ public class UserToBookEntity {
     private int id;
     private String userid;
     private int bookId;
-    //private Date issueDate;
-    //private Date returnDate;
     @Basic
     @Temporal(TemporalType.TIMESTAMP)
     private Date issueDate;

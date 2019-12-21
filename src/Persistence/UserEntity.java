@@ -16,6 +16,7 @@ public class UserEntity {
     private String phone;
     private String email;
     private Boolean isBlocked;
+    private Set<BookEntity> books = new HashSet<BookEntity>();
 
     @Id
     @Column(name = "id")
@@ -117,10 +118,16 @@ public class UserEntity {
         return Objects.hash(id, type, firstName, lastName, password, isBlocked, email, phone);
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "UserToBook",
             joinColumns = {@JoinColumn(name = "UserId")},
             inverseJoinColumns = {@JoinColumn(name = "BookId")}
     )
-    public Set<BookEntity> books = new HashSet<BookEntity>();
+    public Set<BookEntity> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<BookEntity> books) {
+        this.books = books;
+    }
 }
