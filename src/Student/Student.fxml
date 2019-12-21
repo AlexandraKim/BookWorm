@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Student.StudentController">
+   <children>
+      <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="258.0" style="-fx-background-color: #7242DB;" stylesheets="@StyleAdmin.css">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow color="#5c1ec736" height="65.09" offsetX="-1.0" offsetY="-2.0" radius="35.322500000000005" spread="0.07" width="78.2" />
+               </effect>
+               <image>
+                  <Image url="@Icons/user%20(3).png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="userNameLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="162.0" style="-fx-text-alignment: center;" text="Zilola Talipova" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" startX="-100.0" stroke="WHITE" />
+            <Button fx:id="booksBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#booksBtnClick" prefHeight="62.0" prefWidth="270.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="   Books" textFill="#6b35ca">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/outline-chrome_reader_mode-24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets left="120.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="checkoutsBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#checkoutsBtnClick" prefHeight="58.0" prefWidth="264.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="  Checkouts" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/outline-people_outline-24px.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="V_RESIZE" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets left="120.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="finesBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#finesBtnClick" prefHeight="61.0" prefWidth="268.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="  Fines" textFill="#6b35ca">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/outline-school-24px.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="V_RESIZE" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets left="120.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <VBox prefHeight="327.0" prefWidth="258.0" />
+            <Line endX="100.0" startX="-100.0" stroke="WHITE" />
+            <Button graphicTextGap="5.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-color: #7242DB;" styleClass="bodystyle" stylesheets="@buttonStyle.css" text=" Log Out" textAlignment="CENTER" textFill="#6b35ca">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/baseline-reply-24px.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="V_RESIZE" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="V_RESIZE" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets left="120.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow color="#7444d49a" height="70.57" offsetX="4.0" radius="34.3075" spread="0.07" width="68.66" />
+         </effect>
+      </VBox>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f8d702" height="105.0" layoutX="328.0" layoutY="64.0" stroke="TRANSPARENT" strokeType="INSIDE" width="151.0">
+         <effect>
+            <DropShadow color="#8576054b" height="104.41" offsetX="6.0" offsetY="10.0" radius="51.11" spread="0.02" width="102.03" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="105.0" layoutX="516.0" layoutY="63.0" stroke="TRANSPARENT" strokeType="INSIDE" width="151.0">
+         <effect>
+            <DropShadow color="#5d1ec95c" height="110.37" offsetX="6.0" offsetY="10.0" radius="53.195" spread="0.1" width="104.41" />
+         </effect>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#5f00ff" />
+                  <Stop color="#7d0fff" offset="0.5061643835616438" />
+                  <Stop color="#ba04e8" offset="0.9786259541984734" />
+                  <Stop color="#ba04e8" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <HBox fx:id="usersHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label prefHeight="50.0" prefWidth="100.0" text="ID">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="181.0" text="Name">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="160.0" text="Phone Number">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="140.0" text="Mail">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#6a36c937" height="44.83" radius="24.2975" spread="0.05" width="54.36" />
+         </effect>
+      </HBox>
+      <HBox fx:id="booksHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label prefHeight="50.0" prefWidth="120.0" text="ISBN">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="290.0" text="Title">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="150.0" text="Genre">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="130.0" text="Author">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="150.0" text="Publication Date">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#6a36c937" height="44.83" radius="24.2975" spread="0.05" width="54.36" />
+         </effect>
+      </HBox>
+      <ScrollPane layoutX="327.0" layoutY="283.0" prefHeight="442.0" prefWidth="1005.0">
+         <effect>
+            <DropShadow color="#6a38c73b" height="75.81" radius="32.042500000000004" spread="0.05" width="54.36" />
+         </effect>
+         <content>
+            <VBox fx:id="list_items" prefHeight="440.0" prefWidth="1003.0" style="-fx-border-radius: 30; -fx-background-radius: 30;">
+               <effect>
+                  <DropShadow color="#00000030" />
+               </effect>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="524.0" layoutY="120.0" prefHeight="44.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="CURRENT" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label id="num_s" fx:id="numS" alignment="CENTER" contentDisplay="CENTER" layoutX="537.0" layoutY="61.0" prefHeight="70.0" prefWidth="107.0" text="24" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="338.0" layoutY="123.0" prefHeight="44.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="ALL CHECKOUTS" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label id="num_s" fx:id="numS1" alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="52.0" prefHeight="94.0" prefWidth="136.0" text="100" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="105.0" layoutX="701.0" layoutY="64.0" stroke="TRANSPARENT" strokeType="INSIDE" width="151.0">
+         <effect>
+            <DropShadow color="#5d1ec95c" height="110.37" offsetX="6.0" offsetY="10.0" radius="53.195" spread="0.1" width="104.41" />
+         </effect>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#5f00ff" />
+                  <Stop color="#7d0fff" offset="0.5061643835616438" />
+                  <Stop color="#ba04e8" offset="0.9786259541984734" />
+                  <Stop color="#ba04e8" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="709.0" layoutY="131.0" prefHeight="31.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="FINES" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label id="num_s" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="68.0" prefHeight="70.0" prefWidth="134.0" text="110" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="326.0" layoutY="20.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" text="STATISTICS" textFill="#6c00bf">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <TextField layoutX="1032.0" layoutY="30.0" prefHeight="31.0" prefWidth="298.0" promptText="Search" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-padding: 0 40 0 10; -fx-border-color: #5A00B4;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <Button graphicTextGap="2.0" layoutX="1280.0" layoutY="30.0" minWidth="42.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: transparent;" textFill="TRANSPARENT">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/baseline-search-24px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="addBtn" layoutX="1239.0" layoutY="169.0" minWidth="46.0" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 0 5 0 0; -fx-text-fill: #FFFFFF;" text="Add">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/baseline-add-24px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="titleLbl" layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" styleClass="bodystyle" text="STUDENTS" textFill="#7d5b9a">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
