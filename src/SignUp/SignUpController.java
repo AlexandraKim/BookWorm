@@ -40,10 +40,13 @@ public class SignUpController {
                 String pagePath = "";
                 if(user.getType() == 0){
                     pagePath = "../Administration/Admin.fxml";
+                    Administration.TableContent.setValue("l");
                 } else if (user.getType() == 1){
                     pagePath = "../Librarian/Librarian.fxml";
+                    Librarian.TableContent.setValue("b");
                 } else if (user.getType() == 2){
                     pagePath = "../Student/Student.fxml";
+                    Student.TableContent.setValue("b");
                 }
                 try {
                     Parent pageViewParent = FXMLLoader.load(getClass().getResource(pagePath));

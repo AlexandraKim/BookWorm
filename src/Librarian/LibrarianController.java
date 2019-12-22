@@ -55,7 +55,6 @@ public class LibrarianController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userNameLbl.setText(_user.getFirstName() + " " + _user.getLastName());
-        TableContent.setValue("b");
         switchTable();
     }
 
@@ -99,7 +98,6 @@ public class LibrarianController implements Initializable {
 
     public void checkoutsBtnClick () {
         TableContent.setValue("c");
-
         switchTable();
     }
 

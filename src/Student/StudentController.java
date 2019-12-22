@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import Utils.*;
+import javafx.stage.Stage;
 import org.hibernate.Query;
 import org.hibernate.Session;
 

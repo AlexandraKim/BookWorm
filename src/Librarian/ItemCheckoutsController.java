@@ -1,8 +1,7 @@
 package Librarian;
 
-import Persistence.BookEntity;
+import Persistence.UserEntity;
 import Persistence.UserToBookEntity;
-import Student.TableContent;
 import Utils.DatabaseConnection;
 import Utils.DateFormat;
 import javafx.fxml.FXML;
@@ -33,13 +32,9 @@ public class ItemCheckoutsController implements Initializable {
     @FXML
     Label returnDateLbl;
     @FXML
-    Button returnBtn;
-    @FXML
     Button checkoutBtn;
     @FXML
     Button studentViewBtn;
-
-    private BookEntity _book;
 
     private UserToBookEntity _checkout;
     @Override
@@ -54,14 +49,11 @@ public class ItemCheckoutsController implements Initializable {
         titleLbl.setText(checkout.getBook().getTitle());
         authorLbl.setText(checkout.getBook().getAuthor());
         if (checkout.getIssueDate() == null){
-            checkoutBtn.setVisible(true);
-            returnBtn.setVisible(false);
+            checkoutBtn.setText("CHECKOUT");
         } else if (checkout.getReturnDate() == null) {
-            checkoutBtn.setVisible(false);
-            returnBtn.setVisible(true);
+            checkoutBtn.setText("RETURN");
         } else {
             checkoutBtn.setVisible(false);
-            returnBtn.setVisible(false);
         }
 
         issueDateLbl.setText(DateFormat.convert(checkout.getIssueDate()));
@@ -70,10 +62,40 @@ public class ItemCheckoutsController implements Initializable {
     }
 
     public void checkoutBtnClick (){
+        Transaction tx = null;
+        Session session = DatabaseConnection.get_sessionFactory().openSession();
+        if (_checkout.getIssueDate() == null){
+            Query q = session.createQuery("update UserToBookEntity set " +
+                    "issueDate = :issueDate " +
+                    "where id = :id");
+            q.setParameter("issueDate", new Date());
+            q.setParameter("id", _checkout.getId());
+            int result = q.executeUpdate();
+        } else if (_checkout.getReturnDate() == null) {
+            Query q = session.createQuery("update UserToBookEntity set " +
+                    "returnDate = :returnDate " +
+                    "where id = :id");
+            q.setParameter("returnDate", new Date());
+            q.setParameter("id", _checkout.getId());
+            int result = q.executeUpdate();
+        } else {
+            checkoutBtn.setVisible(false);
+
+        }
+        tx = session.beginTransaction();
+        tx.commit();
+        session.close();
+
+        refreshParent();
+    }
+
+    public void studentInfoClick(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CheckOutWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CheckoutWindow.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load(), 409, 274));
+            CheckoutWIndowController controller = loader.<CheckoutWIndowController>getController();
+            controller.initData(_checkout.getUser());
             stage.showAndWait();
             refreshParent();
         }
@@ -81,29 +103,14 @@ public class ItemCheckoutsController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void returnBtnClick(){
-        Transaction tx = null;
-        Session session = DatabaseConnection.get_sessionFactory().openSession();
-        Query q = session.createQuery("update UserToBookEntity set " +
-                "returnDate = :returnDate " +
-                "where id = :id");
-        q.setParameter("returnDate", new Date());
-        q.setParameter("id", _checkout.getId());
-        int result = q.executeUpdate();
-        tx = session.beginTransaction();
-        tx.commit();
-        session.close();
-        TableContent.setValue("c");
-        refreshParent();
-    }
 
     public void refreshParent(){
         try {
+            TableContent.setValue("c");
             Parent pageViewParent = FXMLLoader.load(getClass().getResource("Librarian.fxml"));
             Scene pageViewScene = new Scene(pageViewParent, 1366, 768);
             Stage window = (Stage) isbnLbl.getScene().getWindow();
             window.setScene(pageViewScene);
-
             window.show();
         } catch (Exception e) {
             System.out.println(e.getMessage());

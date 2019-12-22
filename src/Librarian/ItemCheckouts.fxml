@@ -16,7 +16,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="studentViewBtn" minHeight="40.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="u1510001" underline="true">
+      <Button fx:id="studentViewBtn" minHeight="40.0" mnemonicParsing="false" onAction="#studentInfoClick" style="-fx-background-color: #ffffff;" text="u1510001" underline="true">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -56,14 +56,6 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="returnBtn" mnemonicParsing="false" onAction="#returnBtnClick" prefHeight="35.0" prefWidth="86.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="RETURN">
-         <HBox.margin>
-            <Insets left="10.0" />
-         </HBox.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Button fx:id="checkoutBtn" layoutX="765.0" layoutY="20.0" mnemonicParsing="false" onAction="#checkoutBtnClick" prefHeight="35.0" prefWidth="86.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="CHECKOUT">
          <cursor>
             <Cursor fx:constant="HAND" />
