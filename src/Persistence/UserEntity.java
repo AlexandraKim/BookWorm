@@ -1,9 +1,7 @@
 package Persistence;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "user", schema = "bookworm", catalog = "")
@@ -17,7 +15,7 @@ public class UserEntity {
     private String email;
     private Boolean isBlocked;
     private Set<BookEntity> books = new HashSet<BookEntity>();
-    private Set<UserToBookEntity> checkouts = new HashSet<UserToBookEntity>();
+    public List<UserToBookEntity> checkouts = new ArrayList<UserToBookEntity>();
 
     @Id
     @Column(name = "id")
@@ -132,12 +130,12 @@ public class UserEntity {
         this.books = books;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    public Set<UserToBookEntity> getCheckouts() {
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    public List<UserToBookEntity> getCheckouts() {
         return checkouts;
     }
 
-    public void setCheckouts(Set<UserToBookEntity> checkouts) {
+    public void setCheckouts(List<UserToBookEntity> checkouts) {
         this.checkouts = checkouts;
     }
 }

@@ -13,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import Utils.*;
-import javafx.stage.Stage;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -48,14 +47,14 @@ public class StudentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userNameLbl.setText(_user.getFirstName() + " " + _user.getLastName());
-        TableContent.setValue("all");
+        TableContent.setValue("b");
         switchTable();
     }
 
     public void switchTable(){
         String hoverOrActiveBtnStyle = "-fx-background-color: #5A00B4;";
         String btnStyle = "-fx-background-color: #7242DB;";
-        if (TableContent.getValue() == "all") {
+        if (TableContent.getValue() == "b") {
             titleLbl.setText("Books");
             displayBooksTable();
             booksHeader.setVisible(true);
@@ -93,7 +92,7 @@ public class StudentController implements Initializable {
     }
 
     public void booksBtnClick () {
-        TableContent.setValue("all");
+        TableContent.setValue("b");
         switchTable();
     }
 

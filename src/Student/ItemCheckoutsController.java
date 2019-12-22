@@ -30,8 +30,6 @@ public class ItemCheckoutsController implements Initializable {
     Label issueDateLbl;
     @FXML
     Label returnDateLbl;
-    @FXML
-    Button returnBtn;
 
     private UserToBookEntity _checkout;
     @Override
@@ -46,18 +44,5 @@ public class ItemCheckoutsController implements Initializable {
         authorLbl.setText(checkout.getBook().getAuthor());
         issueDateLbl.setText(DateFormat.convert(checkout.getIssueDate()));
         returnDateLbl.setText(DateFormat.convert(checkout.getReturnDate()));
-    }
-
-    public void refreshParent(){
-        try {
-            Parent pageViewParent = FXMLLoader.load(getClass().getResource("Student.fxml"));
-            Scene pageViewScene = new Scene(pageViewParent, 1366, 768);
-            Stage window = (Stage) isbnLbl.getScene().getWindow();
-            window.setScene(pageViewScene);
-            TableContent.setValue("all");
-            window.show();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

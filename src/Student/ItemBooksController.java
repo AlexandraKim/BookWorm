@@ -14,12 +14,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ItemBooksController implements Initializable {
@@ -65,13 +64,19 @@ public class ItemBooksController implements Initializable {
     public void checkoutBtnClick(){
         Transaction tx=null;
         Session session = DatabaseConnection.get_sessionFactory().openSession();
+
         UserToBookEntity utb = new UserToBookEntity();
         utb.setBook(_book);
         utb.setUser(Auth.getUser());
+
         session.save(utb);
         tx = session.beginTransaction();
         tx.commit();
-        session.close();
+
+        List<UserToBookEntity> checkouts = Auth.getUser().getCheckouts();
+        checkouts.add(utb);
+        Auth.getUser().setCheckouts(checkouts);
+        TableContent.setValue("b");
         refreshParent();
     }
 
@@ -81,7 +86,6 @@ public class ItemBooksController implements Initializable {
             Scene pageViewScene = new Scene(pageViewParent, 1366, 768);
             Stage window = (Stage) isbnLbl.getScene().getWindow();
             window.setScene(pageViewScene);
-            TableContent.setValue("all");
             window.show();
         } catch (Exception e) {
             System.out.println(e.getMessage());

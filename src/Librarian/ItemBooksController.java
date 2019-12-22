@@ -1,10 +1,8 @@
 package Librarian;
 
 import Persistence.BookEntity;
-import Persistence.UserToBookEntity;
 import Student.TableContent;
 import Utils.Auth;
-import Utils.DatabaseConnection;
 import Utils.DateFormat;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.net.URL;
 import java.util.Date;
@@ -93,7 +89,7 @@ public class ItemBooksController implements Initializable {
 
     public void refreshParent(){
         try {
-            Parent pageViewParent = FXMLLoader.load(getClass().getResource("Student.fxml"));
+            Parent pageViewParent = FXMLLoader.load(getClass().getResource("Librarian.fxml"));
             Scene pageViewScene = new Scene(pageViewParent, 1366, 768);
             Stage window = (Stage) isbnLbl.getScene().getWindow();
             window.setScene(pageViewScene);

@@ -1,6 +1,5 @@
 package SignUp;
 
-import Administration.TableContent;
 import Persistence.UserEntity;
 import Utils.DatabaseConnection;
 import Utils.Auth;
