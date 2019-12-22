@@ -16,6 +16,7 @@ public class BookEntity {
     private int quantity;
     private Set<UserEntity> users = new HashSet<UserEntity>();
 
+
     @Basic
     @Column(name = "Quantity")
     public Integer getQuantity() {
@@ -117,5 +118,16 @@ public class BookEntity {
 
     public void setUsers(Set<UserEntity> users) {
         this.users = users;
+    }
+
+    private Set<UserToBookEntity> checkouts;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "book")
+    public Set<UserToBookEntity> getCheckouts() {
+        return checkouts;
+    }
+
+    public void setCheckouts(Set<UserToBookEntity> checkouts) {
+        this.checkouts = checkouts;
     }
 }

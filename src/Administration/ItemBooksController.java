@@ -1,6 +1,7 @@
 package Administration;
 
 import Persistence.BookEntity;
+import Utils.DateFormat;
 import javafx.beans.binding.StringBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -46,10 +46,7 @@ public class ItemBooksController implements Initializable {
         titleLbl.setText(obj.getTitle());
         genreLbl.setText(obj.getGenre());
         authorLbl.setText(obj.getAuthor());
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(obj.getPublicationDate());
-        publicationDateLbl.setText(date);
+        publicationDateLbl.setText(DateFormat.convert(obj.getPublicationDate()));
     }
 
     public void modifyBtnClick(){

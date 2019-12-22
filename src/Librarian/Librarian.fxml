@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Librarian.LibrarianController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Librarian.LibrarianController">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="768.0" prefWidth="258.0" style="-fx-background-color: #7242DB;" stylesheets="@StyleAdmin.css">
          <children>
@@ -33,13 +25,37 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
                </VBox.margin>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="162.0" style="-fx-text-alignment: center;" text="Zilola Talipova" textFill="WHITE">
+            <Label fx:id="userNameLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="162.0" style="-fx-text-alignment: center;" text="Zilola Talipova" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <Line endX="100.0" startX="-100.0" stroke="WHITE" />
-            <Button graphicTextGap="5.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="264.0" styleClass="bodystyle" stylesheets="@buttonStyle.css" text="  Librarian" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="booksBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#booksBtnClick" prefHeight="62.0" prefWidth="270.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="   Books" textFill="#6b35ca">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/outline-chrome_reader_mode-24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets left="120.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="checkoutsBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#checkoutsBtnClick" prefHeight="58.0" prefWidth="264.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="  Checkouts" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -54,7 +70,7 @@
                   </ImageView>
                </graphic>
                <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <opaqueInsets>
                   <Insets left="120.0" />
@@ -63,7 +79,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button graphicTextGap="5.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="268.0" styleClass="bodystyle" stylesheets="@buttonStyle.css" text="  Students" textFill="#6b35ca">
+            <Button fx:id="finesBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#finesBtnClick" prefHeight="61.0" prefWidth="268.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="  Fines" textFill="#6b35ca" >
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -78,31 +94,7 @@
                   </ImageView>
                </graphic>
                <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
-               </cursor>
-               <opaqueInsets>
-                  <Insets left="120.0" />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
-            <Button graphicTextGap="5.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="270.0" styleClass="bodystyle" stylesheets="@buttonStyle.css" text="   Books" textFill="#6b35ca">
-               <font>
-                  <Font name="Arial" size="24.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Icons/outline-chrome_reader_mode-24px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <opaqueInsets>
                   <Insets left="120.0" />
@@ -165,9 +157,9 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <HBox layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+      <HBox fx:id="checkoutsHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label prefHeight="50.0" prefWidth="100.0" text="ID">
+            <Label prefHeight="50.0" prefWidth="100.0" text="ISBN">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -175,7 +167,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="181.0" text="Name">
+            <Label prefHeight="80.0" prefWidth="80.0" text="Student Id">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -183,7 +175,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="160.0" text="Phone Number">
+            <Label prefHeight="50.0" prefWidth="200.0" text="Title">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -191,7 +183,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="140.0" text="Mail">
+            <Label prefHeight="50.0" prefWidth="170.0" text="Author">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -199,7 +191,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="107.0" text="Faculty">
+            <Label prefHeight="50.0" prefWidth="100.0" text="Issue date">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -207,7 +199,54 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="107.0" text="Year">
+            <Label prefHeight="50.0" prefWidth="100.0" text="Return date">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#6a36c937" height="44.83" radius="24.2975" spread="0.05" width="54.36" />
+         </effect>
+      </HBox>
+      <HBox fx:id="booksHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label prefHeight="50.0" prefWidth="100.0" text="ISBN">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="290.0" text="Title">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="150.0" text="Genre">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="130.0" text="Author">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="150.0" text="Publication Date">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -232,7 +271,7 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="524.0" layoutY="120.0" prefHeight="44.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="LIBRARIANS" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="524.0" layoutY="120.0" prefHeight="44.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="CURRENT" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -242,7 +281,7 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="338.0" layoutY="123.0" prefHeight="44.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="STUDENTS" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="338.0" layoutY="123.0" prefHeight="44.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="ALL CHECKOUTS" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -267,7 +306,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="709.0" layoutY="131.0" prefHeight="31.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="BOOKS" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="709.0" layoutY="131.0" prefHeight="31.0" prefWidth="134.0" style="-fx-text-fill: #ffffff;" text="FINES" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -296,7 +335,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="Add" layoutX="1239.0" layoutY="169.0" minWidth="46.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 0 5 0 0; -fx-text-fill: #FFFFFF;" text="Add">
+      <Button fx:id="addBtn" layoutX="1239.0" layoutY="169.0" minWidth="46.0" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 0 5 0 0; -fx-text-fill: #FFFFFF;" text="Add">
          <graphic>
             <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -307,8 +346,11 @@
          <font>
             <Font size="19.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Label layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" text="STUDENTS" textFill="#7d5b9a">
+      <Label fx:id="titleLbl" layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" styleClass="bodystyle" text="STUDENTS" textFill="#7d5b9a">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

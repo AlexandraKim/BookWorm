@@ -2,6 +2,7 @@ package Student;
 
 import Persistence.BookEntity;
 import Persistence.UserEntity;
+import Persistence.UserToBookEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -38,7 +39,7 @@ public class StudentController implements Initializable {
     @FXML
     public Label userNameLbl;
     @FXML
-    public HBox usersHeader;
+    public HBox checkoutsHeader;
     @FXML
     public HBox booksHeader;
 
@@ -58,14 +59,14 @@ public class StudentController implements Initializable {
             titleLbl.setText("Books");
             displayBooksTable();
             booksHeader.setVisible(true);
-            usersHeader.setVisible(false);
+            checkoutsHeader.setVisible(false);
             booksBtn.setStyle(hoverOrActiveBtnStyle);
             checkoutsBtn.setStyle(btnStyle);
             finesBtn.setStyle(btnStyle);
         } else if (TableContent.getValue() == "c") {
             titleLbl.setText("Checkouts");
-
-            usersHeader.setVisible(true);
+            displayCheckoutsTable();
+            checkoutsHeader.setVisible(true);
             booksHeader.setVisible(false);
             checkoutsBtn.setStyle(hoverOrActiveBtnStyle);
             finesBtn.setStyle(btnStyle);
@@ -73,7 +74,7 @@ public class StudentController implements Initializable {
         } else if (TableContent.getValue() == "f") {
             titleLbl.setText("Fines");
 
-            usersHeader.setVisible(false);
+            checkoutsHeader.setVisible(false);
             booksHeader.setVisible(true);
             finesBtn.setStyle(hoverOrActiveBtnStyle);
             booksBtn.setStyle(btnStyle);
@@ -118,36 +119,22 @@ public class StudentController implements Initializable {
         }
     }
 
+    public void displayCheckoutsTable(){
+        list_items.getChildren().clear();
 
-
-    public void addBtnClick() {
-//
-//        String title = "librarian";
-//        int type = 1;
-//        if (Administration.TableContent.getValue() == "l") {
-//            title = "librarian";
-//            type = 1;
-//        }
-//        if (Administration.TableContent.getValue() == "s") {
-//            title = "student";
-//            type = 2;
-//        }
-//        if (TableContent.getValue() == "b") {
-//            title = "book";
-//        }
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("Add.fxml"));
-//        Stage stage = new Stage();
-//        stage.setTitle("Add " + title);
-//        try {
-//            stage.setScene(new Scene(loader.load(), 409, 411));
-//            Administration.AddController controller = loader.<AddController>getController();
-//            stage.showAndWait();
-//            displayUsersTable(type);
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
+        for (UserToBookEntity checkout : Auth.getUser().getCheckouts() ) {
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemCheckouts.fxml"));
+                Node node = loader.load();
+                ItemCheckoutsController controller = loader.<ItemCheckoutsController>getController();
+                controller.initData(checkout);
+                list_items.getChildren().add(node);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
+
     public void setFont () {
         Font myFont ;
         try {

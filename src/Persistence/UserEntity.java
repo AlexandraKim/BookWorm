@@ -17,6 +17,7 @@ public class UserEntity {
     private String email;
     private Boolean isBlocked;
     private Set<BookEntity> books = new HashSet<BookEntity>();
+    private Set<UserToBookEntity> checkouts = new HashSet<UserToBookEntity>();
 
     @Id
     @Column(name = "id")
@@ -129,5 +130,14 @@ public class UserEntity {
 
     public void setBooks(Set<BookEntity> books) {
         this.books = books;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    public Set<UserToBookEntity> getCheckouts() {
+        return checkouts;
+    }
+
+    public void setCheckouts(Set<UserToBookEntity> checkouts) {
+        this.checkouts = checkouts;
     }
 }

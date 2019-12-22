@@ -1,7 +1,8 @@
-package Student;
+package Librarian;
 
 import Persistence.BookEntity;
 import Persistence.UserToBookEntity;
+import Student.TableContent;
 import Utils.Auth;
 import Utils.DatabaseConnection;
 import Utils.DateFormat;
@@ -13,13 +14,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ItemBooksController implements Initializable {
@@ -49,30 +48,47 @@ public class ItemBooksController implements Initializable {
         genreLbl.setText(obj.getGenre());
         authorLbl.setText(obj.getAuthor());
         publicationDateLbl.setText(DateFormat.convert(obj.getPublicationDate()));
-        for(UserToBookEntity utb : Auth.getUser().getCheckouts()){
-            if(utb.getBook().getId() == _book.getId()){
-                if(utb.getIssueDate() == null){
-                    checkoutBtn.setDisable(true);
-                    checkoutBtn.setText("Reserved");
-                } else if (utb.getReturnDate() == null){
-                    checkoutBtn.setDisable(true);
-                    checkoutBtn.setText("Borrowed");
-                }
-            }
+        if (Auth.getUser().getBooks().contains(obj)){
+            checkoutBtn.setDisable(true);
         }
     }
 
-    public void checkoutBtnClick(){
-        Transaction tx=null;
-        Session session = DatabaseConnection.get_sessionFactory().openSession();
-        UserToBookEntity utb = new UserToBookEntity();
-        utb.setBook(_book);
-        utb.setUser(Auth.getUser());
-        session.save(utb);
-        tx = session.beginTransaction();
-        tx.commit();
-        session.close();
-        refreshParent();
+    public void modifyBtnClick(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyBook.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Modify " + _book.getTitle());
+            stage.setScene(new Scene(loader.load(), 409, 411));
+            ModifyBookController controller = loader.<ModifyBookController>getController();
+            controller.initData(_book);
+
+            isbnLbl.textProperty().bind(controller.isbnTxt.textProperty());
+            titleLbl.textProperty().bind(controller.titleTxt.textProperty());
+            genreLbl.textProperty().bind(controller.genreTxt.textProperty());
+            authorLbl.textProperty().bind(controller.authorTxt.textProperty());
+            publicationDateLbl.textProperty().bind(controller.publicationDateTxt.textProperty());
+
+            stage.show();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBtnClick(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirm.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Confirm deletion of " + _book.getTitle());
+            stage.setScene(new Scene(loader.load(), 409, 274));
+            DeleteController controller = loader.<DeleteController>getController();
+            controller.initData(_book);
+            stage.showAndWait();
+            refreshParent();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void refreshParent(){

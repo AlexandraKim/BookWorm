@@ -157,9 +157,9 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <HBox fx:id="usersHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
+      <HBox fx:id="checkoutsHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label prefHeight="50.0" prefWidth="100.0" text="ID">
+            <Label prefHeight="50.0" prefWidth="100.0" text="ISBN">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -167,7 +167,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="181.0" text="Name">
+            <Label prefHeight="50.0" prefWidth="290.0" text="Title">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -175,7 +175,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="160.0" text="Phone Number">
+            <Label prefHeight="50.0" prefWidth="170.0" text="Author">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -183,7 +183,15 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="140.0" text="Mail">
+            <Label prefHeight="50.0" prefWidth="100.0" text="Issue date">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="50.0" prefWidth="100.0" text="Return date">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -198,7 +206,7 @@
       </HBox>
       <HBox fx:id="booksHeader" layoutX="327.0" layoutY="225.0" prefHeight="50.0" prefWidth="1006.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label prefHeight="50.0" prefWidth="120.0" text="ISBN">
+            <Label prefHeight="50.0" prefWidth="100.0" text="ISBN">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -319,21 +327,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="addBtn" layoutX="1239.0" layoutY="169.0" minWidth="46.0" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="40.0" prefWidth="83.0" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-background-color: #7242DB; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 0 5 0 0; -fx-text-fill: #FFFFFF;" text="Add">
-         <graphic>
-            <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Icons/baseline-add-24px.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font size="19.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+
       <Label fx:id="titleLbl" layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" styleClass="bodystyle" text="STUDENTS" textFill="#7d5b9a">
          <font>
             <Font name="System Bold" size="24.0" />
