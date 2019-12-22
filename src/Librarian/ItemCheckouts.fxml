@@ -40,7 +40,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="issueDateLbl" prefHeight="40.0" prefWidth="110.0" text="2005-10-05">
+      <Label fx:id="issueDateLbl" prefHeight="40.0" prefWidth="150.0" text="2005-10-05">
          <padding>
             <Insets left="15.0" />
          </padding>
@@ -48,7 +48,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="returnDateLbl" prefHeight="40.0" prefWidth="110.0" text="2005-10-05">
+      <Label fx:id="returnDateLbl" prefHeight="40.0" prefWidth="150.0" text="2005-10-05">
          <padding>
             <Insets left="15.0" />
          </padding>

@@ -56,8 +56,8 @@ public class ItemCheckoutsController implements Initializable {
             checkoutBtn.setVisible(false);
         }
 
-        issueDateLbl.setText(DateFormat.convert(checkout.getIssueDate()));
-        returnDateLbl.setText(DateFormat.convert(checkout.getReturnDate()));
+        issueDateLbl.setText(DateFormat.convert(checkout.getIssueDate(), true));
+        returnDateLbl.setText(DateFormat.convert(checkout.getReturnDate(), true));
 
     }
 

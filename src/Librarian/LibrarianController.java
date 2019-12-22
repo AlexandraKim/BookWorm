@@ -80,7 +80,7 @@ public class LibrarianController implements Initializable {
             booksBtn.setStyle(btnStyle);
             addBtn.setVisible(false);
         } else if (TableContent.getValue() == "f") {
-            titleLbl.setText("Fines");
+            titleLbl.setText("Fines (Under Development)");
 
             checkoutsHeader.setVisible(false);
             booksHeader.setVisible(true);

@@ -92,7 +92,7 @@ public class StudentController implements Initializable {
             finesBtn.setStyle(btnStyle);
             booksBtn.setStyle(btnStyle);
         } else if (TableContent.getValue() == "f") {
-            titleLbl.setText("Fines");
+            titleLbl.setText("Fines (Under Development)");
 
             checkoutsHeader.setVisible(false);
             booksHeader.setVisible(true);
