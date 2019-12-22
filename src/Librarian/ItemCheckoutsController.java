@@ -1,5 +1,6 @@
 package Librarian;
 
+import Persistence.BookEntity;
 import Persistence.UserToBookEntity;
 import Student.TableContent;
 import Utils.DatabaseConnection;
@@ -38,6 +39,8 @@ public class ItemCheckoutsController implements Initializable {
     @FXML
     Button studentViewBtn;
 
+    private BookEntity _book;
+
     private UserToBookEntity _checkout;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,22 +69,18 @@ public class ItemCheckoutsController implements Initializable {
 
     }
 
-    public void checkoutBtnClick(){
-        Transaction tx = null;
-        Session session = DatabaseConnection.get_sessionFactory().openSession();
-        Query q = session.createQuery("update UserToBook set " +
-                "issueDate = :issueDate " +
-                "where id = :id");
-        q.setParameter("issueDate", new Date());
-        q.setParameter("id", _checkout.getId());
-        int result = q.executeUpdate();
-        tx = session.beginTransaction();
-        tx.commit();
-        session.close();
-        TableContent.setValue("b");
-        refreshParent();
+    public void checkoutBtnClick (){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CheckOutWindow.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(loader.load(), 409, 274));
+            stage.showAndWait();
+            refreshParent();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
-
     public void returnBtnClick(){
         Transaction tx = null;
         Session session = DatabaseConnection.get_sessionFactory().openSession();

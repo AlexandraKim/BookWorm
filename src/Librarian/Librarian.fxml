@@ -79,7 +79,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button fx:id="finesBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#finesBtnClick" prefHeight="61.0" prefWidth="268.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="  Fines" textFill="#6b35ca" >
+            <Button fx:id="finesBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#finesBtnClick" prefHeight="61.0" prefWidth="268.0" styleClass="menu-button" stylesheets="@buttonStyle.css" text="  Fines" textFill="#6b35ca">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -108,7 +108,7 @@
             </Button>
             <VBox prefHeight="327.0" prefWidth="258.0" />
             <Line endX="100.0" startX="-100.0" stroke="WHITE" />
-            <Button graphicTextGap="5.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-color: #7242DB;" styleClass="bodystyle" stylesheets="@buttonStyle.css" text=" Log Out" textAlignment="CENTER" textFill="#6b35ca">
+            <Button fx:id="logoutBtn" graphicTextGap="5.0" mnemonicParsing="false" onAction="#logoutBtnClick" prefHeight="58.0" prefWidth="266.0" style="-fx-background-color: #7242DB;" styleClass="bodystyle" stylesheets="@buttonStyle.css" text=" Log Out" textAlignment="CENTER" textFill="#f3f1f8">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -123,7 +123,7 @@
                   </ImageView>
                </graphic>
                <cursor>
-                  <Cursor fx:constant="V_RESIZE" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <opaqueInsets>
                   <Insets left="120.0" />

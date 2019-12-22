@@ -3,10 +3,13 @@ package Student;
 import Persistence.BookEntity;
 import Persistence.UserEntity;
 import Persistence.UserToBookEntity;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -34,6 +37,8 @@ public class StudentController implements Initializable {
     private Button checkoutsBtn;
     @FXML
     private Button finesBtn;
+    @FXML
+    private Button logoutBtn;
 
     @FXML
     public Label userNameLbl;
@@ -51,7 +56,22 @@ public class StudentController implements Initializable {
         switchTable();
     }
 
-    public void switchTable(){
+    public void logoutBtnClick (ActionEvent event) {
+        Auth.setUser(null);
+        try {
+            Parent pageViewParent = FXMLLoader.load(getClass().getResource("../SignUP/SignUp.fxml"));
+            Scene pageViewScene = new Scene(pageViewParent, 950, 630);
+            Stage window = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
+            window.setScene(pageViewScene);
+            window.show();
+        }
+
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+        public void switchTable(){
         String hoverOrActiveBtnStyle = "-fx-background-color: #5A00B4;";
         String btnStyle = "-fx-background-color: #7242DB;";
         if (TableContent.getValue() == "b") {
