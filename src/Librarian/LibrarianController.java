@@ -48,7 +48,11 @@ public class LibrarianController implements Initializable {
     @FXML
     public HBox booksHeader;
     @FXML
+    public HBox usersHeader;
+    @FXML
     public Button addBtn;
+    @FXML
+    public Button studentsBtn;
 
     private UserEntity _user = Auth.getUser();
 
@@ -62,32 +66,62 @@ public class LibrarianController implements Initializable {
         String hoverOrActiveBtnStyle = "-fx-background-color: #5A00B4;";
         String btnStyle = "-fx-background-color: #7242DB;";
         if (TableContent.getValue() == "b") {
+            list_items.setVisible(true);
             titleLbl.setText("Books");
             displayBooksTable();
             booksHeader.setVisible(true);
             checkoutsHeader.setVisible(false);
+            usersHeader.setVisible(false);
+
             booksBtn.setStyle(hoverOrActiveBtnStyle);
             checkoutsBtn.setStyle(btnStyle);
             finesBtn.setStyle(btnStyle);
+            studentsBtn.setStyle(btnStyle);
+
             addBtn.setVisible(true);
         } else if (TableContent.getValue() == "c") {
+            list_items.setVisible(true);
             titleLbl.setText("Checkouts");
             displayCheckoutsTable();
             checkoutsHeader.setVisible(true);
             booksHeader.setVisible(false);
+            usersHeader.setVisible(false);
+
             checkoutsBtn.setStyle(hoverOrActiveBtnStyle);
             finesBtn.setStyle(btnStyle);
             booksBtn.setStyle(btnStyle);
+            studentsBtn.setStyle(btnStyle);
+
             addBtn.setVisible(false);
         } else if (TableContent.getValue() == "f") {
+            list_items.setVisible(false);
             titleLbl.setText("Fines (Under Development)");
 
             checkoutsHeader.setVisible(false);
-            booksHeader.setVisible(true);
+            booksHeader.setVisible(false);
+            usersHeader.setVisible(false);
+
             finesBtn.setStyle(hoverOrActiveBtnStyle);
             booksBtn.setStyle(btnStyle);
             checkoutsBtn.setStyle(btnStyle);
+            studentsBtn.setStyle(btnStyle);
+
             addBtn.setVisible(false);
+        } else if (TableContent.getValue() == "s") {
+            list_items.setVisible(true);
+            titleLbl.setText("Students");
+            displayUsersTable();
+
+            checkoutsHeader.setVisible(false);
+            booksHeader.setVisible(false);
+            usersHeader.setVisible(true);
+
+            studentsBtn.setStyle(hoverOrActiveBtnStyle);
+            finesBtn.setStyle(btnStyle);
+            booksBtn.setStyle(btnStyle);
+            checkoutsBtn.setStyle(btnStyle);
+
+            addBtn.setVisible(true);
         }
     }
 
@@ -103,6 +137,11 @@ public class LibrarianController implements Initializable {
 
     public void booksBtnClick () {
         TableContent.setValue("b");
+        switchTable();
+    }
+
+    public void studentsBtnClick () {
+        TableContent.setValue("s");
         switchTable();
     }
 
@@ -143,14 +182,36 @@ public class LibrarianController implements Initializable {
                 controller.initData(checkout);
                 list_items.getChildren().add(node);
             } catch (Exception e){
+                System.out.println("dddd");
+                e.printStackTrace();
+           }
+        }
+    }
+
+    public void displayUsersTable() {
+        list_items.getChildren().clear();
+        Session session = DatabaseConnection.get_sessionFactory().openSession();
+        Query query = session.createQuery("from UserEntity where type = 2");
+        List result = query.list();
+        session.close();
+
+        for (UserEntity user : (List<UserEntity>) result ) {
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemUsers.fxml"));
+                Node node = loader.load();
+                ItemUsersController controller = loader.<ItemUsersController>getController();
+                controller.initData(user);
+                list_items.getChildren().add(node);
+            } catch (Exception e){
                 e.printStackTrace();
             }
         }
     }
+
     public void logoutBtnClick (ActionEvent event) {
         Auth.setUser(null);
         try {
-            Parent pageViewParent = FXMLLoader.load(getClass().getResource("../SignUP/SignUp.fxml"));
+            Parent pageViewParent = FXMLLoader.load(getClass().getResource("../SignUp/SignUp.fxml"));
             Scene pageViewScene = new Scene(pageViewParent, 950, 630);
             Stage window = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
             window.setScene(pageViewScene);
@@ -161,13 +222,12 @@ public class LibrarianController implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
     public void addBtnClick() {
-        String title = "librarian";
+        String title = "student";
         String path = "Add.fxml";
-        int type = 1;
         if (TableContent.getValue() == "s") {
             title = "student";
-            type = 2;
             path = "Add.fxml";
         } else if (TableContent.getValue() == "b") {
             title = "book";
@@ -180,7 +240,7 @@ public class LibrarianController implements Initializable {
             stage.setScene(new Scene(loader.load(), 409, 411));
             stage.showAndWait();
             if (TableContent.getValue() != "b"){
-//                displayUsersTable(type);
+                displayUsersTable();
             } else {
                 displayBooksTable();
             }

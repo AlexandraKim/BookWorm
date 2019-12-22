@@ -331,7 +331,7 @@
          </graphic>
       </Button>
 
-      <Label fx:id="titleLbl" layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="230.0" style="-fx-text-fill: #6c00bf;" styleClass="bodystyle" text="STUDENTS" textFill="#7d5b9a">
+      <Label fx:id="titleLbl" layoutX="328.0" layoutY="181.0" prefHeight="43.0" prefWidth="465.0" style="-fx-text-fill: #6c00bf;" styleClass="bodystyle" text="STUDENTS" textFill="#7d5b9a">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

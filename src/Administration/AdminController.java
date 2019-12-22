@@ -48,9 +48,6 @@ public class AdminController implements Initializable {
     @FXML
     public HBox booksHeader;
 
-    @FXML
-    public AnchorPane pane;
-
     private UserEntity _user = Auth.getUser();
 
     @Override

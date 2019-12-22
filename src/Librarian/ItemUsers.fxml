@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="991.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Librarian.ItemUsersController">
+   <children>
+      <Label fx:id="idLbl" prefHeight="40.0" prefWidth="100.0" text="U1810043">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLbl" prefHeight="40.0" prefWidth="190.0" text="Talipova Zilola">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="phoneLbl" prefHeight="40.0" prefWidth="127.0" text="998901001010">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailLbl" prefHeight="40.0" prefWidth="202.0" text="t.zilola@student.inha.uz">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="modifyBtn" mnemonicParsing="false" onAction="#modifyBtnClick" prefHeight="35.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="MODIFY">
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteBtnClick" prefHeight="35.0" prefWidth="75.0" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #6C35C9; -fx-border-radius: 20; -fx-text-fill: #6C35C9; -fx-border-width: 1;" text="DELETE">
+         <HBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </HBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</HBox>

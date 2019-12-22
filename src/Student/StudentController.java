@@ -76,6 +76,7 @@ public class StudentController implements Initializable {
         String hoverOrActiveBtnStyle = "-fx-background-color: #5A00B4;";
         String btnStyle = "-fx-background-color: #7242DB;";
         if (TableContent.getValue() == "b") {
+            list_items.setVisible(true);
             titleLbl.setText("Books");
             displayBooksTable();
             booksHeader.setVisible(true);
@@ -84,6 +85,7 @@ public class StudentController implements Initializable {
             checkoutsBtn.setStyle(btnStyle);
             finesBtn.setStyle(btnStyle);
         } else if (TableContent.getValue() == "c") {
+            list_items.setVisible(true);
             titleLbl.setText("Checkouts");
             displayCheckoutsTable();
             checkoutsHeader.setVisible(true);
@@ -92,6 +94,7 @@ public class StudentController implements Initializable {
             finesBtn.setStyle(btnStyle);
             booksBtn.setStyle(btnStyle);
         } else if (TableContent.getValue() == "f") {
+            list_items.setVisible(false);
             titleLbl.setText("Fines (Under Development)");
 
             checkoutsHeader.setVisible(false);
